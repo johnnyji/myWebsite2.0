@@ -1,0 +1,753 @@
+/* allows smooth fade transitions for all elements on page */
+* {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+/* custom fonts */
+
+@font-face {
+    font-family: bebas;
+    src: url(fonts/bebas.otf);
+}
+
+@font-face {
+    font-family: roboto_thin;
+    src: url(fonts/roboto_thin.ttf);
+}
+
+@font-face {
+    font-family: roboto_light;
+    src: url(fonts/roboto_light.ttf);
+}
+
+@font-face {
+    font-family: roboto_thin_italic;
+    src: url(fonts/roboto_thin_italic.ttf);
+}
+
+/* image and tinted background */
+
+#background {
+    background: rgba(50, 50, 50, 0.9);
+    z-index: -1;
+
+    /*fills the background*/
+    min-height: 100%;
+    min-width: 1024px;
+
+    /* scaling by proportion */
+    width: 100%;
+    height: auto;
+
+    /* sets the positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+img.bg {
+
+    /*fills the background*/
+    min-height: 80%;
+    min-width: 1024px;
+
+    /* scaling by proportion */
+    width: 100%;
+    height: auto;
+
+    /* sets the positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -5;
+
+    /* fades the image */
+    opacity: 0.4;
+}
+
+@media screen and (max-width: 1024px) {
+    img.bg {
+        left: 50%;
+        margin-left: -512px;
+    }
+}
+
+/* main name box */
+
+#name_frame {
+
+    /* makes the frame translucent */
+
+    background-color: transparent;
+    opacity: 0.9;
+
+    /* sets frame position */
+
+    min-height: 50%;
+    min-width: 400px;
+    width: 50%;
+    height: auto;
+    position: fixed;
+    top: 15%;
+    left: 25%;
+
+    /* sets text position/style */
+
+    text-align: center;
+    padding-bottom: 10px;
+    font-family: bebas;
+    font-weight: lighter;
+    color: white;
+    font-size: 1.8em;
+}
+
+/* main page directory links */
+
+.directory {
+    display: inline-block; /* must be inline-block because inline can't be padding */
+}
+
+a.directory {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-family: roboto_thin;
+    position: relative;
+    top: -30px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+a.directory:hover {
+    color: white;
+    background-color: rgba(211, 84, 0); /*fallback color*/
+    background-color: rgba(211, 84, 0, 0.8);
+    padding: 12px;
+    font-family: roboto_thin_italic;
+    font-weight: bolder;
+    opacity: 1;
+}
+
+p.directory {
+    background-cotralor: transparent;
+    font-family: roboto_light;
+    position: relative;
+    top: -30px;
+}
+
+/* header navbar for all pages */
+
+#header {
+
+    /* sets position */
+    float: left;
+    width: 20%;
+    height: 60%;
+    position: fixed;
+    top: 0%;
+    z-index: 10;
+    font-size: 1.1em;
+
+    background-color: transparent;
+    text-align: left;
+}
+
+p.nav {
+    font-family: roboto_thin;
+    color: white;
+    opacity: 0.5;
+}
+
+/* same grey for every nav bar when there's no hover*/
+
+a.nav_home {
+
+    text-decoration: none;
+    font-family: roboto_thin;
+    color: white;
+    background-color: rgb(32, 32, 32); /*fallback color*/
+    background-color: rgba(32, 32, 32, 0.5);
+    font-size: 1.7em;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+a.nav_story{
+
+    text-decoration: none;
+    font-family: roboto_thin;
+    color: white;
+    background-color: rgb(32, 32, 32); /*fallback color*/
+    background-color: rgba(32, 32, 32, 0.5);
+    font-size: 1.7em;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+a.nav_experience {
+
+    text-decoration: none;
+    font-family: roboto_thin;
+    color: white;
+    background-color: rgb(32, 32, 32); /*fallback color*/
+    background-color: rgba(32, 32, 32, 0.5);
+    font-size: 1.7em;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+a.nav_fun {
+
+    text-decoration: none;
+    font-family: roboto_thin;
+    color: white;
+    background-color: rgb(32, 32, 32); /*fallback color*/
+    background-color: rgba(32, 32, 32, 0.5);
+    font-size: 1.7em;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* different hover for each nav bar */
+
+a.nav_home:hover {
+    text-decoration: none;
+    font-family: roboto_thin_italic;
+    color: white;
+    background-color: rgba(211, 84, 0); /*fallback color*/
+    background-color: rgba(211, 84, 0, 0.8);
+    padding-left: 5px;
+    padding-right: 40px;
+}
+
+a.nav_story:hover {
+    text-decoration: none;
+    font-family: roboto_thin_italic;
+    color: white;
+    background-color: rgb(52, 73, 94); /* backup color */
+    background-color: rgba(52, 73, 94, 0.8);
+    padding-left: 5px;
+    padding-right: 40px;
+}
+
+a.nav_experience:hover {
+    text-decoration: none;
+    font-family: roboto_thin_italic;
+    color: white;
+    background-color: rgba(42, 117, 111); /* fallback color */
+    background-color: rgba(42, 117, 111, 0.8);
+    padding-left: 5px;
+    padding-right: 40px;
+}
+
+a.nav_fun:hover {
+    text-decoration: none;
+    font-family: roboto_thin_italic;
+    color: white;
+    background-color: rgb(127, 140, 141, ); /* backup color */
+    background-color: rgba(127, 140, 141, 0.8);
+    padding-left: 5px;
+    padding-right: 40px;
+}
+
+/* current active link hover */
+
+a.current_home {
+    text-decoration: none;
+    font-family: roboto_thin_italic;
+    color: white;
+    background-color: rgb(52, 73, 94); /* backup color */
+    background-color: rgba(52, 73, 94, 0.8);
+    padding-left: 5px;
+    padding-right: 40px;
+    font-size: 1.7em;
+}
+
+a.current_story {
+    text-decoration: none;
+    font-family: roboto_thin_italic;
+    color: white;
+    background-color: rgba(42, 117, 111); /* fallback color */
+    background-color: rgba(42, 117, 111, 0.8);
+    padding-left: 5px;
+    padding-right: 40px;
+    font-size: 1.7em;
+}
+
+a.current_experience {
+    text-decoration: none;
+    font-family: roboto_thin_italic;
+    color: white;
+    background-color: rgba(42, 117, 111); /* fallback color */
+    background-color: rgba(42, 117, 111, 0.8);
+    padding-left: 5px;
+    padding-right: 40px;
+    font-size: 1.7em;
+}
+
+a.current_fun {
+    text-decoration: none;
+    font-family: roboto_thin_italic;
+    color: white;
+    background-color: rgb(127, 140, 141, ); /* backup color */
+    background-color: rgba(127, 140, 141, 0.8);
+    padding-left: 5px;
+    padding-right: 40px;
+    font-size: 1.7em;
+}
+
+/* body text and photo*/
+
+/*different body color for different pages */
+
+#body_story {
+
+    /* sets size */
+    height: auto;
+    width: 60%;
+    z-index: 2;
+
+    /* moves the body to the right and sticks it there */
+    float: right;
+    padding: 50px;
+    margin-bottom: 100px;
+    margin-top: -10px;
+
+    /* styling */
+    background-color: rgb(52, 73, 94); /* backup color */
+    background-color: rgba(52, 73, 94, 0.8);
+    color: white;
+    font-family: roboto_thin;
+    font-size: 1.3em;
+}
+
+#body_experience {
+
+    /* sets size */
+    display: inline-block;
+    height: auto;
+    width: 60%;
+    z-index: 2;
+
+    /* moves the body to the right and sticks it there */
+    float: right;
+    padding: 50px;
+    margin-bottom: 100px;
+    margin-top: -10px;
+
+    /* styling */
+    background-color: rgba(42, 117, 111); /* fallback color */
+    background-color: rgba(42, 117, 111, 0.8);
+    color: white;
+    font-family: roboto_thin;
+    font-size: 1.1em;
+}
+
+#body_fun {
+
+    /* sets size */
+    height: auto;
+    width: 60%;
+    z-index: 2;
+
+    /* moves the body to the right and sticks it there */
+    float: right;
+    padding: 50px;
+    margin-bottom: 100px;
+    margin-top: -10px;
+
+    /* styling */
+    background-color: rgb(127, 140, 141, ); /* backup color */
+    background-color: rgba(127, 140, 141, 0.8);
+    color: white;
+    font-family: roboto_thin;
+    font-size: 1.3em;
+}
+
+/* story profile pic */
+
+img.picture {
+    width: 85%;
+    height: 45%;
+    position: relative;
+    top: -50px;    
+    border: 1px solid white;
+}
+
+/* resume list */
+
+h1.section_title {
+    position: relative;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    font-family: roboto_thin_italic;
+}
+
+ul.resume {
+
+    /* keeps spacing between the different sections of resume */
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+h2.job_title {
+    font-size: 1.3em;
+    font-family: bebas;
+    margin-top: 20px;
+}
+
+li.job_title {
+    font-size: 1.3em;
+    font-family: bebas;
+    margin-top: 20px;
+}
+
+/* emphasis key words on resume */
+span.visions {
+    font-family: roboto_light;
+}
+/* footer bar */
+
+#footer { /* footer when pages have divs */
+
+    /* positions at the bottom */
+    height: auto;
+    width: 100%;
+    clear: both;
+    z-index: 1;
+
+    /* styles the footer */
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+    text-align: right;
+    font-family: roboto_thin;
+}
+
+/* portfolio page */
+
+#body_fun .container {
+    text-align: center;
+}
+
+#footer_main { /* footer when there's no div */
+
+    /* positions at the bottom */
+    height: auto;
+    width: 100%;
+    position: fixed;
+    bottom: 0%;
+    z-index: 1;
+
+    /* styles the footer */
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+    text-align: center;
+    font-family: roboto_thin;
+}
+
+a.email {
+    text-decoration: none;
+    color: white;
+}
+
+a.email:hover {
+    text-decoration: none;
+    color: white;
+    background-color: rgba(211, 84, 0); /*fallback color*/
+    background-color: rgba(211, 84, 0, 0.7);
+    padding: 5px;
+}
+
+a#facebook {
+    text-decoration: none;
+    background-color: rgb(59, 89, 152);
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    -webkit-filter: grayscale(0%);
+}
+
+a#facebook:hover {
+    text-decoration: none;
+    background-color: rgb(59, 89, 152);
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    -webkit-filter: grayscale(100%); /* makes the facebook icon fade when mouse hovers */
+}
+
+a#instagram {
+    text-decoration: none;
+    background-color: rgb(81, 127, 164);
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    -webkit-filter: grayscale(0%);
+}
+
+a#instagram:hover {
+    text-decoration: none;
+    background-color: rgb(81, 127, 164);
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    -webkit-filter: grayscale(100%); /* makes the instagram icon fade when mouse hovers */
+}
+
+
+
+
+
+/* ACTING PAGE */
+
+/*actor navbar */
+
+#header_actor {
+    display: inline-block;
+    height: 20%;
+    width: auto;
+    background-color: transparent;
+    font-family: roboto_thin;
+    color: white;
+    position: relative;
+    top: 70px;
+    font-size: 1.1em;
+}
+
+/* extra pics link on navbar */
+a.nav_scrapbook {
+
+    text-decoration: none;
+    font-family: roboto_thin;
+    color: white;
+    background-color: rgb(32, 32, 32); /*fallback color*/
+    background-color: rgba(32, 32, 32, 0.5);
+    font-size: 1.7em;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+a.nav_scrapbook:hover {
+    text-decoration: none;
+    font-family: roboto_thin_italic;
+    color: white;
+    background-color: rgb(204, 51, 63); /* backup color */
+    background-color: rgba(204, 51, 63, 0.8);
+    padding-left: 5px;
+    padding-right: 40px;
+}
+
+a.current_scrapbook {
+    text-decoration: none;
+    font-family: roboto_thin_italic;
+    color: white;
+    background-color: rgb(204, 51, 63); /* backup color */
+    background-color: rgba(204, 51, 63, 0.8);
+    padding-left: 5px;
+    padding-right: 40px;
+    font-size: 1.7em;
+}
+
+/* body div for different actor pages */
+
+#body_actor {
+
+    /* sets size */
+    height: auto;
+    width: 60%;
+    z-index: 2;
+
+    /* shift body to the left and aligns with header */
+    float: left;
+    padding: 50px;
+    top: 70px;
+    margin-bottom: 100px;
+    margin-top: 70px;
+
+    /* styling */
+    display: inline;
+    background-color: rgb(52, 73, 94); /* backup color */
+    background-color: rgba(52, 73, 94, 0.8);
+    color: white;
+    font-family: roboto_thin;
+    font-size: 1.3em;
+}
+
+#body_credits {
+
+    /* sets size */
+    height: auto;
+    width: 60%;
+    z-index: 2;
+
+    /* shift body to the left and aligns with header */
+    float: left;
+    padding: 50px;
+    margin-bottom: 100px;
+    margin-top: 70px;
+
+    /* styling */
+    background-color: rgba(42, 117, 111); /* fallback color */
+    background-color: rgba(42, 117, 111, 0.8);
+    color: white;
+    font-family: roboto_thin;
+    font-size: 1.3em;
+}
+
+#body_scrapbook {
+
+    /* sets size */
+    height: auto;
+    width: 60%;
+    z-index: 2;
+
+    /* shift body to the left and aligns with header */
+    float: left;
+    padding: 50px;
+    margin-bottom: 100px;
+
+    /* styling */
+    background-color: rgb(204, 51, 63); /* backup color */
+    background-color: rgba(204, 51, 63, 0.8);
+    color: white;
+    font-family: roboto_thin;
+    font-size: 1.3em;
+}
+
+#body_etc {
+
+    /* sets size */
+    height: auto;
+    width: 60%;
+    z-index: 2;
+
+    /* shift body to the left and aligns with header */
+    float: left;
+    padding: 50px;
+    margin-bottom: 100px;
+    margin-top: 70px;
+
+    /* styling */
+    display: inline;
+    background-color: rgb(127, 140, 141, ); /* backup color */
+    background-color: rgba(127, 140, 141, 0.8);
+    color: white;
+    font-family: roboto_thin;
+    font-size: 1.3em;
+}
+
+/* actor page headshot */
+
+img.picture_actor {
+    width: 60%;
+    height: 70%;
+    border: 1px solid white;
+
+    /* IMPORTANT: floating the picture left allows text to be on the right of the picture */
+
+    float: left;
+    margin-left: -40px;
+    margin-right: 20px;
+    margin-bottom: 100px;
+}
+
+/* resume page headshot */
+
+img.picture_credits {
+    width: 80%;
+    height: 80%;
+    border: 1px solid white;
+
+    /* sticks the image to the right */
+
+    margin-left: -40px;
+}
+
+/* the actual resume */
+
+#credits_table {
+    height: auto;
+    width: auto;
+    background-color: transparent;
+
+    float: left;
+    position: relative;
+    margin-left: -40px;
+    top: 40px;
+}
+
+table#credits {
+    width: auto;
+    min-width: 200px;
+    height: auto;
+
+    /* creates white space division after one section of the resume */
+
+    padding-bottom: 40px;
+}
+
+tbody.credits_body {
+    text-align: left; /* shifts table text to the right */
+}
+
+th.credits_head {
+    text-align: left;
+    font-family: roboto_thin_italic;
+    font-size: 1.7em;
+    position: relative;
+    padding-bottom: 40px;
+}
+
+td {
+    border-collapse: separate;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* scrapbook page demo */
+
+iframe.vid {
+    width: 640px;
+    max-width: 100%; /* IMPORTANT: makes the iframe responsive */
+    
+    height: 360px;
+    border: 1px solid white;
+    position: relative;
+    margin-bottom: 40px;
+    margin-left: -40px;
+    top: -40px;
+}
+
+p.vid1 {
+    position: relative;
+    margin-left: -40px;
+    top: -40px;
+}
+
+/* actor footer */
+
+#footer_actor { /* footer for actor div pages */
+
+    /* positions at the bottom */
+    height: auto;
+    width: 100%;
+    clear: both;
+    z-index: 1;
+
+    /* styles the footer */
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+    text-align: left;
+    font-family: roboto_thin;
+}
